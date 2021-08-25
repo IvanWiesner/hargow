@@ -15,7 +15,7 @@ function DimPage ({dimsums, setDimsums, login, setLogin, search, setSearch, setR
     const displayDimsums = filterDimsums().map((dimsum, index) => {
         return (
         <DimCard 
-        dimsum={dimsum}
+        dimsums={dimsum}
         key={index}
         reviews={reviews.filter(review => dimsum.id===review.dimsum_id)}
         handleNewReview={handleNewReview}

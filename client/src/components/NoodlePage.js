@@ -1,12 +1,12 @@
 import React from "react"
-import { BrowserRouter as Redirect } from "react-router-dom";
+import { BrowserRouter as Redirect, Router, Route } from "react-router-dom";
 import NoodleCard from "./NoodleCard"
 
 function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
-
-    if (!login) {
-        return <Redirect to = "/login"/>
-    }
+    console.log(noodles)
+    // if (!login) {
+    //     return <Redirect to = "/login"/>
+    // }
 
     const filterNoodles = () => {
     return noodles.filter((noodle)=>

@@ -2,7 +2,7 @@ import React from "react"
 import { BrowserRouter as Redirect } from "react-router-dom";
 import StirCard from "./StirCard"
 
-function NoodlePage ({stirFrys, setStirFrys, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
+function StirPage ({stirFrys, setStirFrys, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
 
     if (!login) {
         return <Redirect to = "/login"/>
@@ -30,4 +30,4 @@ function NoodlePage ({stirFrys, setStirFrys, login, setLogin, search, setSearch,
     )
 }
 
-export default NoodlePage;
+export default StirPage;

@@ -13,7 +13,7 @@ import {
     } from "react-router-dom";
 
 function App() {
-    const [login, setLogin] = useState(false);
+    const [login, setLogin] = useState(true);
     const [dishes, setDishes] = useState([])
     const [stirFrys, setStirFrys] = useState([])
     const [dimsums, setDimsums] = useState([])
@@ -38,33 +38,33 @@ function App() {
     useEffect(() => {
         fetch("http://localhost:3000/dishes")
           .then((resp) => resp.json())
-          .then((data) => {
+          .then((data) => { 
               for (let dish of data) {
                 //   console.log(dish.cuisine)
                 if (dish.cuisine == "stir-fry") {
-                    setStirFrys  ([...stirFrys, dish])
+                    setStirFrys  (stirFrys => ([...stirFrys, dish]))
                 } if (dish.cuisine == "dim-sum") {
-                    setDimsums ([...dimsums, dish])
+                    setDimsums (dimsums => ([...dimsums, dish]))
                 }  if (dish.cuisine == "noodles") {
-                    setNoodles ([...noodles, dish])
+                    setNoodles (noodles => ([...noodles, dish]))
                 }
               }
           });
       }, []);
-      console.log(noodles)
-      console.log(dimsums)
-      console.log(stirFrys)
+    //   console.log(noodles)
+    //   console.log(dimsums)
+    //   console.log(stirFrys)
 // console.log(dish)
       return (
             <Router>
-                <div className="header">
+                <div className="App">
                     <div className="navbar">
                 <h1 className="header-title">Har Gow</h1>
                 <nav className="navbar">
                     <Link to="/">Home</Link>|
-                    <Link to="/noodlecard"> Noodles </Link>|
-                    <Link to ="/stircard">Stir-Fry </Link>|
-                    <Link to ="/dimcard">Dim Sum</Link>
+                    <Link to="/noodlepage"> Noodles </Link>|
+                    <Link to ="/stirpage">Stir-Fry </Link>|
+                    <Link to ="/dimpage">Dim Sum</Link>
                 </nav>
                 </div>
 
@@ -74,8 +74,8 @@ function App() {
                         <HomePage
                         />
                     </Route>
-                    <Route exact path="/noodlecard">
-                        <NoodlePage
+                    <Route path="/noodlepage"
+                    component={() => <NoodlePage login={true} 
                         noodles={noodles}
                         setNoodles={setNoodles}
                         login={login}
@@ -84,11 +84,10 @@ function App() {
                         search={search}
                         setReviews={setReviews}
                         reviews={reviews}
-                        handleNewReviews={handleNewReviews}
-                        />
-                    </Route>
-                    <Route exact path="/stircard">
-                        <StirPage
+                        handleNewReviews={handleNewReviews} 
+                        />} />
+                    <Route path="/stirpage"
+                    component={() => <StirPage login={true} 
                         stirFrys={stirFrys}
                         setStirFrys={setStirFrys}
                         login={login}
@@ -98,10 +97,9 @@ function App() {
                         search={search}
                         reviews={reviews}
                         handleNewReviews={handleNewReviews}
-                        />
-                    </Route>
-                    <Route exact path="/dimcard">
-                        <DimPage
+                        />} />
+                    <Route path="/dimpage"
+                        component={() => <DimPage login={true} 
                         dimsums={dimsums}
                         setDimsums={setDimsums}
                         login={login}
@@ -111,8 +109,7 @@ function App() {
                         setReviews={setReviews}
                         reviews={reviews}
                         handleNewReviews={handleNewReviews}
-                        />
-                    </Route>
+                        />} />
                 </Switch>
                 </div>
             </Router>
