@@ -8,7 +8,7 @@ function HomePage({login, setLogin}){
 
     return (
         <div>
-
+            <p>monkey</p>
         </div>
     )
 }
