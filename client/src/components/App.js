@@ -55,6 +55,7 @@ function App() {
     //   console.log(dimsums)
     //   console.log(stirFrys)
 // console.log(dish)
+
       return (
             <Router>
                 <div className="App">
@@ -70,10 +71,9 @@ function App() {
 
                 <Switch>
 
-                    <Route exact path="/">
-                        <HomePage
-                        />
-                    </Route>
+                    <Route path="/"
+                        component ={() => <HomePage login={true}
+                        />} />
                     <Route path="/noodlepage"
                     component={() => <NoodlePage login={true} 
                         noodles={noodles}

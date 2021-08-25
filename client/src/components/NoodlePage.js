@@ -4,9 +4,9 @@ import NoodleCard from "./NoodleCard"
 
 function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
     console.log(noodles)
-    // if (!login) {
-    //     return <Redirect to = "/login"/>
-    // }
+    if (!login) {
+        return <Redirect to = "/login"/>
+    }
 
     const filterNoodles = () => {
     return noodles.filter((noodle)=>

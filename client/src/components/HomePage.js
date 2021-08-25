@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Redirect } from "react-router-dom";
+
 function HomePage({login, setLogin}){
 
     if (!login) {
@@ -8,7 +9,7 @@ function HomePage({login, setLogin}){
 
     return (
         <div>
-
+            <h1>monkey</h1>
         </div>
     )
 }
