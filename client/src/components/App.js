@@ -15,8 +15,8 @@ import {
 function App() {
     const [login, setLogin] = useState(false);
     const [dishes, setDishes] = useState([])
-    const [stirFry, setStirFry] = useState([])
-    const [dimsum, setDimsum] = useState([])
+    const [stirFrys, setStirFrys] = useState([])
+    const [dimsums, setDimsums] = useState([])
     const [noodles, setNoodles] = useState([])
     const [search, setSearch] = useState("")
     const [reviews, setReviews] = useState([])
@@ -40,18 +40,21 @@ function App() {
           .then((resp) => resp.json())
           .then((data) => {
               for (let dish of data) {
-                  console.log(dish.cuisine)
+                //   console.log(dish.cuisine)
                 if (dish.cuisine == "stir-fry") {
-                    setStirFry  ([...stirFry, dish])
+                    setStirFrys  ([...stirFrys, dish])
                 } if (dish.cuisine == "dim-sum") {
-                    setDimsum ([...dimsum, dish])
-                }  if (dish.noodles == "noodles") {
+                    setDimsums ([...dimsums, dish])
+                }  if (dish.cuisine == "noodles") {
                     setNoodles ([...noodles, dish])
                 }
               }
           });
       }, []);
-
+      console.log(noodles)
+      console.log(dimsums)
+      console.log(stirFrys)
+// console.log(dish)
       return (
             <Router>
                 <div className="header">
@@ -86,8 +89,8 @@ function App() {
                     </Route>
                     <Route exact path="/stircard">
                         <StirPage
-                        stirFry={stirFry}
-                        setStirFry={setStirFry}
+                        stirFrys={stirFrys}
+                        setStirFrys={setStirFrys}
                         login={login}
                         setLogin={setLogin}
                         setSearch={setSearch}
@@ -99,8 +102,8 @@ function App() {
                     </Route>
                     <Route exact path="/dimcard">
                         <DimPage
-                        dimsum={dimsum}
-                        setDimsum={setDimsum}
+                        dimsums={dimsums}
+                        setDimsums={setDimsums}
                         login={login}
                         setLogin={setLogin}
                         setSearch={setSearch}
