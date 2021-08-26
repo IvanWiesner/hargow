@@ -1,9 +1,7 @@
-
+import {useEffect} from "react"
 import Search from './Search'
 import { BrowserRouter as Redirect, Switch } from "react-router-dom";
 import NoodleCard from "./NoodleCard"
-
-
 
 function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
     // if (!login) {
@@ -15,6 +13,12 @@ function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, s
     // const toggleReviews = () => {
     // toggle ? setToggle(false): setToggle(true)
     // }
+
+    useEffect(() => {
+        if (!login) {window.location.href = "http://localhost:4000/login";}
+    },[]
+    )
+
     const filterNoodles = () => {
     return noodles.filter((noodle)=>
     noodle.name.toLowerCase().includes(search.toLowerCase()))

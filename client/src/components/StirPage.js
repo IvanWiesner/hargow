@@ -1,12 +1,18 @@
-import React from "react"
+import {useEffect} from "react"
+import Search from './Search'
 import { BrowserRouter as Redirect } from "react-router-dom";
 import StirCard from "./StirCard"
 
 function StirPage ({stirFrys, setStirFrys, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
 
-    if (!login) {
-        return <Redirect to = "/login"/>
-    }
+    useEffect(() => {
+        if (!login) {window.location.href = "http://localhost:4000/login";}
+    },[]
+    )
+
+    // if (!login) {
+    //     return <Redirect to = "/login"/>
+    // }
 
     const filterStirFrys = () => {
     return stirFrys.filter((stirFry)=>
@@ -24,9 +30,17 @@ function StirPage ({stirFrys, setStirFrys, login, setLogin, search, setSearch, s
     })
 
     return (
+        <>
+        <Search 
+        search={search}
+        setSearch={setSearch}
+        />
         <ul>
             {displayStirFrys}
         </ul>
+        {/* <button onClick={toggleReviews}>Show Reviews</button>
+        {toggle ? <p>Reviews are Hidden</p>: <p>{noodle.reviews}</p>} */}
+        </>
     )
 }
 

@@ -13,7 +13,7 @@ import {
     } from "react-router-dom";
 
 function App() {
-    const [login, setLogin] = useState(true);
+    const [login, setLogin] = useState(false);
     const [dishes, setDishes] = useState([])
     const [stirFrys, setStirFrys] = useState([])
     const [dimsums, setDimsums] = useState([])
@@ -70,7 +70,10 @@ function App() {
                 </div>
 
                 <Switch>
-
+                    <Route path="/login"  
+                    component={() => <LoginPage login={true} 
+                    setLogin={setLogin}
+                    /> }/>
                     <Route exact path="/"
                         component ={() => <HomePage login={true}
                         />} />

@@ -7,6 +7,7 @@ function LoginPage({setLogin}){
     const [loggedIn, setLoggedIn] = useState('')
     const [errors, setErrors] = useState ('')
 
+
     function onSubmit(e){
         e.preventDefault()
         const login = {
@@ -25,7 +26,8 @@ function LoginPage({setLogin}){
             if(json.error){
                 setErrors(json.error)
             }else {
-                setLogin(json)
+                setLogin(true)
+                console.log(setLogin)
             }
         })
     }
