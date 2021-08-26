@@ -8,7 +8,9 @@ function HomePage({login, setLogin}){
 
     return (
         <div>
-            <p>monkey</p>
+            <h1>About Har Gow</h1>
+            <img src =""/>
+            <p></p>
         </div>
     )
 }
