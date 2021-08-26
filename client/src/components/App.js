@@ -29,11 +29,11 @@ function App() {
         setReviews([...reviews, newReview])
     }
 
-    useEffect(() => {
-        fetch("http://localhost:3000/reviews")
-          .then((resp) => resp.json())
-          .then((data) => setReviews(data));
-      }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:3000/reviews")
+    //       .then((resp) => resp.json())
+    //       .then((data) => setReviews(data));
+    //   }, []);
     
     useEffect(() => {
         fetch("http://localhost:3000/dishes")

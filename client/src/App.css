@@ -23,6 +23,19 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* .dishes-list{
+  padding: 60px;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+} */
+.header-title{
+  color: black;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
 
 .App-link {
   color: #61dafb;

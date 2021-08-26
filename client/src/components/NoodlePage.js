@@ -1,13 +1,20 @@
-import React from "react"
-import { BrowserRouter as Redirect, Router, Route } from "react-router-dom";
+
+import Search from './Search'
+import { BrowserRouter as Redirect, Switch } from "react-router-dom";
 import NoodleCard from "./NoodleCard"
 
+
+
 function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, setReviews, reviews, handleNewReview}) {
-    console.log(noodles)
     // if (!login) {
     //     return <Redirect to = "/login"/>
     // }
+    // console.log(reviews)
+    // const [toggle, setToggle] = useState(true)
 
+    // const toggleReviews = () => {
+    // toggle ? setToggle(false): setToggle(true)
+    // }
     const filterNoodles = () => {
     return noodles.filter((noodle)=>
     noodle.name.toLowerCase().includes(search.toLowerCase()))
@@ -17,16 +24,23 @@ function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, s
         <NoodleCard 
         noodle={noodle}
         key={index}
-        reviews={reviews.filter(review => noodle.id===review.noodle_id)}
         handleNewReview={handleNewReview}
         />
         )
     })
 
     return (
+        <>
+        <Search 
+        search={search}
+        setSearch={setSearch}
+        />
         <ul>
             {displayNoodles}
         </ul>
+        {/* <button onClick={toggleReviews}>Show Reviews</button>
+        {toggle ? <p>Reviews are Hidden</p>: <p>{noodle.reviews}</p>} */}
+        </>
     )
 }
 

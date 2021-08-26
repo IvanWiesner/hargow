@@ -1,12 +1,16 @@
 import React from "react"
 import Noodle from "./Noodle"
+import { useState } from "react"
 
 function NoodleCard ({noodle, reviews, handleNewReviews}) {
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        fetch(`http://localhost:3000/dishes`)
+    console.log(reviews)
+    const [toggle, setToggle] = useState(true)
+
+    const toggleReviews = () => {
+    toggle ? setToggle(false): setToggle(true)
     }
     return (
+        <>
         <Noodle 
         id={noodle.id}
         name={noodle.name}
@@ -18,6 +22,9 @@ function NoodleCard ({noodle, reviews, handleNewReviews}) {
         handleNewReviews={handleNewReviews}
         reviews={reviews}
         />
+        <button onClick={toggleReviews}>Show Reviews</button>
+        {toggle ? <p>Reviews are Hidden</p>: <p>{reviews}</p>}
+        </>
     )
 }
 
