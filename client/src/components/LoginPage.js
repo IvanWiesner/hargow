@@ -5,7 +5,7 @@ function LoginPage({setLogin}){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [loggedIn, setLoggedIn] = useState('')
-    const [errrors, setErrors] = useState ('')
+    const [errors, setErrors] = useState ('')
 
     function onSubmit(e){
         e.preventDefault()
