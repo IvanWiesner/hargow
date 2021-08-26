@@ -2,7 +2,10 @@ import React from "react"
 import Noodle from "./Noodle"
 
 function NoodleCard ({noodle, reviews, handleNewReviews}) {
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch(`http://localhost:3000/dishes`)
+    }
     return (
         <Noodle 
         id={noodle.id}
