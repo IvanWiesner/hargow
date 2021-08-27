@@ -1,10 +1,16 @@
+import {useEffect} from 'react';
 import React from 'react';
 import { BrowserRouter as Redirect } from "react-router-dom";
 function HomePage({login, setLogin}){
 
-    if (!login) {
-        return <Redirect to = "/login"/>
-    }
+    // if (!login) {
+    //     return <Redirect to = "/login"/>
+    // }
+
+    useEffect(() => {
+        if (!login) {window.location.href = "http://localhost:4000/login";}
+    },[]
+    )
 
     return (
         <div>

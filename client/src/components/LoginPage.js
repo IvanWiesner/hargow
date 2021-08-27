@@ -34,7 +34,7 @@ function LoginPage({setLogin}){
 
     return (
         <div>
-            <Form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
             <label>
                 Username
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
@@ -45,8 +45,8 @@ function LoginPage({setLogin}){
             </label>
             <input type="submit" value="Sign up to acess Website!"/>
             <input type="submit" value="Login" onClick={()=> setLoggedIn(true)}/>
-            </Form>
-            {errors?errors.map(e => <Errors>{e}</Errors>):null}
+            </form>
+            {/* {errors?errors.map(e => <Errors>{e}</Errors>):null} */}
         </div>
     )
 }

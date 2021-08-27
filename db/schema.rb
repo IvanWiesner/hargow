@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_172400) do
+ActiveRecord::Schema.define(version: 2021_08_27_155400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 2021_08_20_172400) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_id"], name: "index_reviews_on_dish_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
