@@ -16,7 +16,7 @@ function LoginPage({setLogin}){
         }
         let API_PATH 
         loggedIn?API_PATH = 'session' : API_PATH = "users"
-        fetch(`http://localhost:3000/dishes/${API_PATH}`, {
+        fetch(`http://localhost:3000/login/${API_PATH}`, {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify(login)
@@ -34,7 +34,7 @@ function LoginPage({setLogin}){
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            <Form onSubmit={onSubmit}>
             <label>
                 Username
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
@@ -45,7 +45,8 @@ function LoginPage({setLogin}){
             </label>
             <input type="submit" value="Sign up to acess Website!"/>
             <input type="submit" value="Login" onClick={()=> setLoggedIn(true)}/>
-            </form>
+            </Form>
+            {errors?errors.map(e => <Errors>{e}</Errors>):null}
         </div>
     )
 }
